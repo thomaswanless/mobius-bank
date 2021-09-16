@@ -693,7 +693,14 @@ p {
   );
 
   top: 0px;
-  @include respond(height, 100%, 100vh, 100vh, 100vh, 100vh);
+  @include respond(
+    height,
+    calc(100vh - #{map-get($navHeight, "mobile")}),
+    100vh,
+    100vh,
+    100vh,
+    100vh
+  );
 
   @include respond(
     width,
@@ -718,7 +725,8 @@ p {
   @include font(normal, normal);
 
   .popUpPanel {
-    height: 750px;
+    @include respond(height, auto, 750px, 750px, 750px, 750px);
+    @include respond(width, auto, 720px, 720px, 720px, 720px);
     width: 720px;
     box-sizing: border-box;
     @include respond(
@@ -758,11 +766,11 @@ p {
 
   .infoRow {
     justify-content: space-between;
-    padding: 16px 0px;
+    @include respond(padding, 8px 0px, 12px 0px, 16px 0px, 16px 0px, 16px 0px);
 
     p {
-      font-size: 24px;
-      line-height: 24px;
+      @include respond(font-size, 16px, 20px, 24px, 24px, 24px);
+      @include respond(line-height, 16px, 20px, 24px, 24px, 24px);
     }
 
     .data {
@@ -773,7 +781,7 @@ p {
 
   input {
     color: $grey;
-    font-size: 36px;
+    @include respond(font-size, 20px, 24px, 24px, 24px, 24px);
     text-align: center;
   }
 
@@ -812,6 +820,7 @@ p {
     }
 
     input {
+      height: 60px;
       border: none;
       margin: 0px 20px;
     }

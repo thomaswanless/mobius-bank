@@ -1460,12 +1460,12 @@ p {
 }
 @media (max-width: 481px) {
   .popUpWindow {
-    height: 100%;
+    height: calc(100vh - 80px);
   }
 }
 @media (min-width: 481px) and (max-width: 769px) {
   .popUpWindow {
-    height: 100%;
+    height: calc(100vh - 80px);
   }
 }
 @media (min-width: 769px) and (max-width: 1025px) {
@@ -1509,10 +1509,59 @@ p {
   }
 }
 .popUpWindow .popUpPanel {
-  height: 750px;
   width: 720px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+@media (max-width: 481px) {
+  .popUpWindow .popUpPanel {
+    height: auto;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .popUpPanel {
+    height: auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .popUpPanel {
+    height: 750px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    height: 750px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    height: 750px;
+  }
+}
+@media (max-width: 481px) {
+  .popUpWindow .popUpPanel {
+    width: auto;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .popUpPanel {
+    width: auto;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .popUpPanel {
+    width: 720px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    width: 720px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    width: 720px;
+  }
 }
 @media (max-width: 481px) {
   .popUpWindow .popUpPanel {
@@ -1652,11 +1701,81 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 16px 0px;
 }
-.popUpWindow .infoRow p {
-  font-size: 24px;
-  line-height: 24px;
+@media (max-width: 481px) {
+  .popUpWindow .infoRow {
+    padding: 8px 0px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .infoRow {
+    padding: 8px 0px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .infoRow {
+    padding: 16px 0px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .infoRow {
+    padding: 16px 0px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .infoRow {
+    padding: 16px 0px;
+  }
+}
+@media (max-width: 481px) {
+  .popUpWindow .infoRow p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .infoRow p {
+    font-size: 16px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .infoRow p {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .infoRow p {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .infoRow p {
+    font-size: 24px;
+  }
+}
+@media (max-width: 481px) {
+  .popUpWindow .infoRow p {
+    line-height: 16px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .infoRow p {
+    line-height: 16px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .infoRow p {
+    line-height: 24px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .infoRow p {
+    line-height: 24px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .infoRow p {
+    line-height: 24px;
+  }
 }
 .popUpWindow .infoRow .data {
   color: #989898;
@@ -1664,8 +1783,32 @@ p {
 }
 .popUpWindow input {
   color: #989898;
-  font-size: 36px;
   text-align: center;
+}
+@media (max-width: 481px) {
+  .popUpWindow input {
+    font-size: 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow input {
+    font-size: 20px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow input {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow input {
+    font-size: 24px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow input {
+    font-size: 24px;
+  }
 }
 .popUpWindow .wideInput {
   height: 60px;
@@ -1703,6 +1846,7 @@ p {
   text-align: center;
 }
 .popUpWindow .amountInput input {
+  height: 60px;
   border: none;
   margin: 0px 20px;
 }
