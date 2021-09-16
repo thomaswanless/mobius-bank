@@ -270,11 +270,11 @@ p {
   top: 0px;
   @include respond(
     height,
-    calc(100vh - #{map-get($navHeight, "mobile")}),
-    100vh,
-    100vh,
-    100vh,
-    100vh
+    calc(100% - #{map-get($navHeight, "mobile")}),
+    100%,
+    100%,
+    100%,
+    100%
   );
 
   @include respond(

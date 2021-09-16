@@ -471,27 +471,27 @@ p {
 }
 @media (max-width: 481px) {
   #dashboard {
-    height: calc(100vh - 80px);
+    height: calc(100% - 80px);
   }
 }
 @media (min-width: 481px) and (max-width: 769px) {
   #dashboard {
-    height: calc(100vh - 80px);
+    height: calc(100% - 80px);
   }
 }
 @media (min-width: 769px) and (max-width: 1025px) {
   #dashboard {
-    height: 100vh;
+    height: 100%;
   }
 }
 @media (min-width: 1025px) and (max-width: 1201px) {
   #dashboard {
-    height: 100vh;
+    height: 100%;
   }
 }
 @media (min-width: 1201px) {
   #dashboard {
-    height: 100vh;
+    height: 100%;
   }
 }
 @media (max-width: 481px) {
