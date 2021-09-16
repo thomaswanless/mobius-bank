@@ -12,19 +12,91 @@ h1 {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 36px;
-  line-height: 48px;
   text-align: center;
   color: #7a86ca;
+}
+@media (max-width: 481px) {
+  h1 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  h1 {
+    font-size: 18px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1201px) {
+  h1 {
+    font-size: 36px;
+  }
+}
+@media (max-width: 481px) {
+  h1 {
+    line-height: 18px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  h1 {
+    line-height: 18px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  h1 {
+    line-height: 42px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  h1 {
+    line-height: 42px;
+  }
+}
+@media (min-width: 1201px) {
+  h1 {
+    line-height: 42px;
+  }
 }
 
 h2 {
   font-family: "Montserrat", sans-serif;
   font-style: normal;
   font-weight: 400;
-  font-size: 36px;
   line-height: 48px;
   color: #7a86ca;
+}
+@media (max-width: 481px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  h2 {
+    font-size: 24px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 1201px) {
+  h2 {
+    font-size: 36px;
+  }
 }
 h2 #displayName {
   font-weight: 700;
@@ -275,9 +347,57 @@ p {
   height: 78px;
 }
 .navEl img {
-  width: 50px;
-  height: 50px;
   margin: 15px 0px;
+}
+@media (max-width: 481px) {
+  .navEl img {
+    width: 42px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .navEl img {
+    width: 42px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .navEl img {
+    width: 50px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .navEl img {
+    width: 50px;
+  }
+}
+@media (min-width: 1201px) {
+  .navEl img {
+    width: 50px;
+  }
+}
+@media (max-width: 481px) {
+  .navEl img {
+    height: 42px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .navEl img {
+    height: 42px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .navEl img {
+    height: 50px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .navEl img {
+    height: 50px;
+  }
+}
+@media (min-width: 1201px) {
+  .navEl img {
+    height: 50px;
+  }
 }
 .navEl:hover {
   cursor: pointer;
@@ -308,6 +428,11 @@ p {
   .navEl h5 {
     display: block;
   }
+}
+
+.navEl-active {
+  -webkit-filter: saturate(1.8) hue-rotate(10deg) !important;
+          filter: saturate(1.8) hue-rotate(10deg) !important;
 }
 
 #dashboard {
@@ -396,12 +521,12 @@ p {
 }
 @media (max-width: 481px) {
   #dashboard {
-    padding: 30px 30px;
+    padding: 5px 5px;
   }
 }
 @media (min-width: 481px) and (max-width: 769px) {
   #dashboard {
-    padding: 30px 30px;
+    padding: 5px 5px;
   }
 }
 @media (min-width: 769px) and (max-width: 1025px) {
@@ -1335,12 +1460,12 @@ p {
 }
 @media (max-width: 481px) {
   .popUpWindow {
-    height: calc(100vh - 80px);
+    height: 100%;
   }
 }
 @media (min-width: 481px) and (max-width: 769px) {
   .popUpWindow {
-    height: calc(100vh - 80px);
+    height: 100%;
   }
 }
 @media (min-width: 769px) and (max-width: 1025px) {
@@ -1388,7 +1513,31 @@ p {
   width: 720px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 30px 70px;
+}
+@media (max-width: 481px) {
+  .popUpWindow .popUpPanel {
+    padding: 20px 20px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .popUpPanel {
+    padding: 20px 20px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .popUpPanel {
+    padding: 30px 70px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    padding: 30px 70px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .popUpPanel {
+    padding: 30px 70px;
+  }
 }
 .popUpWindow .popUpPanel .panelFlex {
   width: 100%;
@@ -1404,12 +1553,97 @@ p {
           align-items: center;
 }
 .popUpWindow .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-line-pack: end;
+      align-content: flex-end;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   padding-bottom: 20px;
 }
+@media (max-width: 481px) {
+  .popUpWindow .title {
+    height: 30px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .title {
+    height: 30px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .title {
+    height: 60px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .title {
+    height: 60px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .title {
+    height: 60px;
+  }
+}
 .popUpWindow .title img {
-  width: 75px;
-  height: 75px;
   padding-right: 17px;
+}
+@media (max-width: 481px) {
+  .popUpWindow .title img {
+    width: 30px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .title img {
+    width: 30px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .title img {
+    width: 60px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .title img {
+    width: 60px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .title img {
+    width: 60px;
+  }
+}
+@media (max-width: 481px) {
+  .popUpWindow .title img {
+    height: 30px;
+  }
+}
+@media (min-width: 481px) and (max-width: 769px) {
+  .popUpWindow .title img {
+    height: 30px;
+  }
+}
+@media (min-width: 769px) and (max-width: 1025px) {
+  .popUpWindow .title img {
+    height: 60px;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1201px) {
+  .popUpWindow .title img {
+    height: 60px;
+  }
+}
+@media (min-width: 1201px) {
+  .popUpWindow .title img {
+    height: 60px;
+  }
 }
 .popUpWindow .title h3 {
   font-size: 48px;

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap");
 
 $mobile: 320px;
 $tablet: 481px;
@@ -17,24 +17,24 @@ $green: #60bc8a;
 $red: #bc6060;
 
 $navWidth: (
-  'mobile': 100vw,
-  'tablet': 80px,
-  'laptop': 100px,
-  'desktop': 120px,
-  'xxx': 120px,
+  "mobile": 100vw,
+  "tablet": 80px,
+  "laptop": 100px,
+  "desktop": 120px,
+  "xxx": 120px,
 );
 
 $navHeight: (
-  'mobile': 80px,
-  'else': 100vh,
+  "mobile": 80px,
+  "else": 100vh,
 );
 
 $dashPadding: (
-  'mobile': 30px 30px,
-  'tablet': 30px 40px,
-  'laptop': 30px 40px,
-  'desktop': 60px 50px,
-  'xxx': 60px 50px,
+  "mobile": 5px 5px,
+  "tablet": 30px 40px,
+  "laptop": 30px 40px,
+  "desktop": 60px 50px,
+  "xxx": 60px 50px,
 );
 
 @mixin respond($prop, $mob, $tab, $lap, $desk, $XLarge) {
@@ -77,7 +77,7 @@ $dashPadding: (
 }
 
 @mixin font($style, $weight) {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-style: $style;
   font-weight: $weight;
 }
@@ -94,15 +94,15 @@ $dashPadding: (
 
 h1 {
   @include font(normal, 400);
-  font-size: 36px;
-  line-height: 48px;
+  @include respond(font-size, 18px, 28px, 36px, 36px, 36px);
+  @include respond(line-height, 18px, 28px, 42px, 42px, 42px);
   text-align: center;
   color: $darkblue;
 }
 
 h2 {
   @include font(normal, 400);
-  font-size: 36px;
+  @include respond(font-size, 24px, 28px, 36px, 36px, 36px);
   line-height: 48px;
   color: $darkblue;
 
@@ -200,11 +200,11 @@ p {
   );
   @include respond(
     height,
-    #{map-get($navHeight, 'mobile')},
-    #{map-get($navHeight, 'else')},
-    #{map-get($navHeight, 'else')},
-    #{map-get($navHeight, 'else')},
-    #{map-get($navHeight, 'else')}
+    #{map-get($navHeight, "mobile")},
+    #{map-get($navHeight, "else")},
+    #{map-get($navHeight, "else")},
+    #{map-get($navHeight, "else")},
+    #{map-get($navHeight, "else")}
   );
 
   display: flex;
@@ -237,8 +237,8 @@ p {
   height: 78px;
 
   img {
-    width: 50px;
-    height: 50px;
+    @include respond(width, 42px, 50px, 50px, 50px, 50px);
+    @include respond(height, 42px, 50px, 50px, 50px, 50px);
     margin: 15px 0px;
   }
   &:hover {
@@ -250,6 +250,9 @@ p {
     @include respond(display, none, block, block, block, block);
   }
 }
+.navEl-active {
+  filter: saturate(1.8) hue-rotate(10deg) !important;
+}
 
 // ----------DASHBOARD
 
@@ -258,16 +261,16 @@ p {
   @include respond(
     left,
     0px,
-    #{map-get($navWidth, 'tablet')},
-    #{map-get($navWidth, 'laptop')},
-    #{map-get($navWidth, 'desktop')},
-    #{map-get($navWidth, 'xxx')}
+    #{map-get($navWidth, "tablet")},
+    #{map-get($navWidth, "laptop")},
+    #{map-get($navWidth, "desktop")},
+    #{map-get($navWidth, "xxx")}
   );
 
   top: 0px;
   @include respond(
     height,
-    calc(100vh - #{map-get($navHeight, 'mobile')}),
+    calc(100vh - #{map-get($navHeight, "mobile")}),
     100vh,
     100vh,
     100vh,
@@ -289,11 +292,11 @@ p {
   box-sizing: border-box;
   @include respond(
     padding,
-    #{map-get($dashPadding, 'mobile')},
-    #{map-get($dashPadding, 'tablet')},
-    #{map-get($dashPadding, 'laptop')},
-    #{map-get($dashPadding, 'desktop')},
-    #{map-get($dashPadding, 'xxx')}
+    #{map-get($dashPadding, "mobile")},
+    #{map-get($dashPadding, "tablet")},
+    #{map-get($dashPadding, "laptop")},
+    #{map-get($dashPadding, "desktop")},
+    #{map-get($dashPadding, "xxx")}
   );
 }
 
@@ -683,21 +686,14 @@ p {
   @include respond(
     left,
     0px,
-    #{map-get($navWidth, 'tablet')},
-    #{map-get($navWidth, 'laptop')},
-    #{map-get($navWidth, 'desktop')},
-    #{map-get($navWidth, 'xxx')}
+    #{map-get($navWidth, "tablet")},
+    #{map-get($navWidth, "laptop")},
+    #{map-get($navWidth, "desktop")},
+    #{map-get($navWidth, "xxx")}
   );
 
   top: 0px;
-  @include respond(
-    height,
-    calc(100vh - #{map-get($navHeight, 'mobile')}),
-    100vh,
-    100vh,
-    100vh,
-    100vh
-  );
+  @include respond(height, 100%, 100vh, 100vh, 100vh, 100vh);
 
   @include respond(
     width,
@@ -725,8 +721,14 @@ p {
     height: 750px;
     width: 720px;
     box-sizing: border-box;
-    padding: 30px 70px;
-
+    @include respond(
+      padding,
+      20px 20px,
+      30px 50px,
+      30px 70px,
+      30px 70px,
+      30px 70px
+    );
     .panelFlex {
       width: 100%;
       display: flex;
@@ -736,10 +738,17 @@ p {
   }
 
   .title {
+    display: flex;
+    flex-direction: row;
+    align-content: flex-end;
+    justify-content: flex-start;
     padding-bottom: 20px;
+
+    @include respond(height, 30px, 38px, 60px, 60px, 60px);
+
     img {
-      width: 75px;
-      height: 75px;
+      @include respond(width, 30px, 38px, 60px, 60px, 60px);
+      @include respond(height, 30px, 38px, 60px, 60px, 60px);
       padding-right: 17px;
     }
     h3 {
