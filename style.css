@@ -190,12 +190,12 @@ p {
 }
 @media (max-width: 481px) {
   #sidebar {
-    top: calc(100vh - 80px);
+    top: calc(100% - 80px);
   }
 }
 @media (min-width: 481px) and (max-width: 769px) {
   #sidebar {
-    top: calc(100vh - 80px);
+    top: calc(100% - 80px);
   }
 }
 @media (min-width: 769px) and (max-width: 1025px) {
