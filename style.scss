@@ -1,0 +1,925 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
+$mobile: 320px;
+$tablet: 481px;
+$laptop: 769px;
+$desktop: 1025px;
+$XXX: 1201px;
+
+$offwhite: #fcfcfc;
+$white: #ffffff;
+$darkblue: #7a86ca;
+
+$grey: #989898;
+$lightgrey: #f5f5f5;
+
+$green: #60bc8a;
+$red: #bc6060;
+
+$navWidth: (
+  'mobile': 100vw,
+  'tablet': 80px,
+  'laptop': 100px,
+  'desktop': 120px,
+  'xxx': 120px,
+);
+
+$navHeight: (
+  'mobile': 80px,
+  'else': 100vh,
+);
+
+$dashPadding: (
+  'mobile': 30px 30px,
+  'tablet': 30px 40px,
+  'laptop': 30px 40px,
+  'desktop': 60px 50px,
+  'xxx': 60px 50px,
+);
+
+@mixin respond($prop, $mob, $tab, $lap, $desk, $XLarge) {
+  @media (max-width: $tablet) {
+    #{$prop}: $mob;
+  }
+  @media (min-width: $tablet) and (max-width: $laptop) {
+    #{$prop}: $mob;
+  }
+  @media (min-width: $laptop) and (max-width: $desktop) {
+    #{$prop}: $lap;
+  }
+  @media (min-width: $desktop) and (max-width: $XXX) {
+    #{$prop}: $desk;
+  }
+  @media (min-width: $XXX) {
+    #{$prop}: $XLarge;
+  }
+}
+
+@mixin modalShadow {
+  box-shadow: -5px -5px 5px #f9f9f9, 5px 5px 5px #e5e5e5;
+}
+
+@mixin modalWindow {
+  background: $white;
+  border-radius: 30px;
+}
+
+@mixin insetText {
+  background: #fcfcfc;
+  box-shadow: inset 4px 4px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+}
+
+@mixin center {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin font($style, $weight) {
+  font-family: 'Montserrat', sans-serif;
+  font-style: $style;
+  font-weight: $weight;
+}
+
+.fade {
+  transition: 0.5s opacity;
+}
+
+//-------------- ELEMENTS
+
+* {
+  margin: 0px;
+}
+
+h1 {
+  @include font(normal, 400);
+  font-size: 36px;
+  line-height: 48px;
+  text-align: center;
+  color: $darkblue;
+}
+
+h2 {
+  @include font(normal, 400);
+  font-size: 36px;
+  line-height: 48px;
+  color: $darkblue;
+
+  #displayName {
+    font-weight: 700;
+  }
+
+  #welcome {
+    font-weight: 300;
+  }
+}
+
+h3 {
+  @include font(normal, 700);
+  color: $darkblue;
+  font-size: 24px;
+}
+
+h5 {
+  @include font(normal, 600);
+  font-size: 13px;
+  line-height: 13px;
+  text-align: center;
+  color: $darkblue;
+}
+
+h6 {
+  @include font(normal, 600);
+
+  font-size: 13px;
+  line-height: 17px;
+  color: $darkblue;
+}
+
+p {
+  @include font(normal, 400);
+  font-size: 14px;
+  line-height: 14px;
+  color: $darkblue;
+}
+
+// ------------ SECTIONS
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  background: $offwhite;
+}
+
+#loanWindow {
+}
+
+//
+#sendWindow {
+}
+
+#login {
+  input {
+    margin-bottom: 30px;
+  }
+  #incorrectLogin {
+    color: $red;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: right;
+  }
+
+  .invalid {
+    justify-content: flex-end;
+  }
+}
+
+.noDisplay {
+  display: none !important;
+}
+
+.hidden {
+  opacity: 0 !important;
+}
+// NAV Settings
+
+#sidebar {
+  position: fixed;
+  left: 0px;
+  @include respond(top, calc(100vh - 80px), 0px, 0px, 0px, 0px);
+  z-index: 100;
+
+  @include respond(
+    width,
+    map-get($navWidth, mobile),
+    map-get($navWidth, tablet),
+    map-get($navWidth, laptop),
+    map-get($navWidth, desktop),
+    map-get($navWidth, xxx)
+  );
+  @include respond(
+    height,
+    #{map-get($navHeight, 'mobile')},
+    #{map-get($navHeight, 'else')},
+    #{map-get($navHeight, 'else')},
+    #{map-get($navHeight, 'else')},
+    #{map-get($navHeight, 'else')}
+  );
+
+  display: flex;
+  @include respond(flex-direction, row, column, column, column, column);
+  align-items: center;
+  justify-content: space-around;
+
+  @include modalWindow();
+  @include modalShadow();
+  border-radius: 0px;
+}
+
+#navBrand {
+  width: 75px;
+  height: 75px;
+
+  img {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 1vh;
+  }
+  h5 {
+    font-weight: 400;
+  }
+  @include respond(display, none, none, block, block, block);
+}
+
+.navEl {
+  width: 50px;
+  height: 78px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    margin: 15px 0px;
+  }
+  &:hover {
+    cursor: pointer;
+    filter: brightness(1.1);
+  }
+
+  h5 {
+    @include respond(display, none, block, block, block, block);
+  }
+}
+
+// ----------DASHBOARD
+
+#dashboard {
+  position: fixed;
+  @include respond(
+    left,
+    0px,
+    #{map-get($navWidth, 'tablet')},
+    #{map-get($navWidth, 'laptop')},
+    #{map-get($navWidth, 'desktop')},
+    #{map-get($navWidth, 'xxx')}
+  );
+
+  top: 0px;
+  @include respond(
+    height,
+    calc(100vh - #{map-get($navHeight, 'mobile')}),
+    100vh,
+    100vh,
+    100vh,
+    100vh
+  );
+
+  @include respond(
+    width,
+    100vw,
+    calc(100vw - #{map-get($navWidth, tablet)}),
+    calc(100vw - #{map-get($navWidth, laptop)}),
+    calc(100vw - #{map-get($navWidth, desktop)}),
+    calc(100vw - #{map-get($navWidth, xxx)})
+  );
+  z-index: 1;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+  @include respond(
+    padding,
+    #{map-get($dashPadding, 'mobile')},
+    #{map-get($dashPadding, 'tablet')},
+    #{map-get($dashPadding, 'laptop')},
+    #{map-get($dashPadding, 'desktop')},
+    #{map-get($dashPadding, 'xxx')}
+  );
+}
+
+#countdown {
+  margin: 10px 0px;
+  font-style: italic;
+}
+
+.buttons {
+  @include respond(display, flex, flex, flex, none, none);
+  display: flex;
+  justify-content: center;
+  padding: 20px 20px;
+  @supports (scroll-snap-type) {
+    a {
+      display: none;
+    }
+  }
+  a {
+    padding: 0px 20px;
+    @include font(normal, normal);
+
+    font-size: 10px;
+
+    border-radius: 2px;
+    background-color: none;
+    text-decoration: none;
+    color: $grey;
+    &:visited {
+      color: $grey;
+    }
+    &:active {
+      font-weight: 700;
+    }
+  }
+}
+
+#cardHolder {
+  width: 100%;
+  height: auto;
+  overflow-y: hidden;
+  @include respond(margin-top, 20px, 20px, 20px, 20px, 20px);
+
+  display: flex;
+  flex-direction: row;
+  @include respond(
+    justify-content,
+    flex-start,
+    space-between,
+    space-between,
+    space-between,
+    space-evenly
+  );
+
+  @include respond(overflow-x, auto, auto, auto, visible, visible);
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scroll-snap-type: x mandatory;
+  -webkit-scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+  .card {
+    @include respond(width, 300px, 300px, 300px, 20vw, 300px);
+    @include respond(height, 180px, 180px, 180px, 12vw, 180px);
+    flex-shrink: 0;
+    @include respond(margin, 0px 50%, 0px 50%, 0px 50%, 0px 20px, 0px 20px);
+
+    scroll-snap-align: center;
+    -webkit-scroll-snap-align: center;
+
+    border-radius: 20px;
+    @include modalShadow();
+    transition: 0.5s filter;
+    &:hover {
+      cursor: pointer;
+      filter: blur(0px) brightness(1);
+    }
+    .typeHolder {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      padding: 4% 5%;
+      img {
+        min-width: 18px;
+        min-height: 18px;
+        width: 2.4vw;
+        height: 2.4vw;
+        max-width: 36px;
+        max-height: 36px;
+      }
+
+      h5 {
+        margin-left: 2%;
+        font-weight: 700;
+        @include respond(font-size, 24px, 24px, 24px, 1.5vw, 24px);
+
+        line-height: 24px;
+      }
+    }
+
+    .cardNumber {
+      display: flex;
+      justify-content: center;
+
+      width: 100%;
+
+      @include respond(padding, 9% 0%, 9% 0%, 9% 0%, 9% 0%, 9% 0%);
+      p {
+        text-shadow: -1px 1px 2px #000000;
+        @include respond(font-size, 24px, 24px, 24px, 1.5vw, 24px);
+      }
+    }
+
+    .cardRefs {
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+
+      @include respond(padding, 9% 0%, 9% 0%, 9% 0%, 6% 0%, 7% 0%);
+      p {
+        text-shadow: -1px 1px 2px #000000;
+        @include respond(font-size, 14px, 14px, 14px, 1vw, 14px);
+      }
+    }
+  }
+
+  .card-inactive {
+    filter: blur(1px) brightness(0.6);
+    box-shadow: none;
+  }
+
+  #currentAcc {
+    background: linear-gradient(108.08deg, #5c6699 0%, #2e334d 100%);
+  }
+  #businessAcc {
+    background: linear-gradient(108.08deg, #553872 0%, #485688 100%);
+  }
+  #investAcc {
+    background: linear-gradient(108.08deg, #323d79 0%, #332e4d 100%);
+  }
+}
+
+#infoStack {
+  @include respond(height, auto, auto, auto, 430px, 430px);
+  width: 100%;
+  @include modalWindow();
+  @include modalShadow();
+  margin-top: 48px;
+
+  display: flex;
+  @include respond(flex-direction, column, column, column, row, row);
+
+  #accData {
+    box-sizing: border-box;
+    width: auto;
+    @include respond(min-width, 300px, 300px, 300px, 300px, 400px);
+    height: 100%;
+    background: none;
+    padding: 20px;
+    h3 {
+      text-align: center;
+      @include respond(font-size, 25px, 28px, 28px, 22px, 24px);
+    }
+
+    #accDetails {
+      width: 100%;
+      padding: 20px 0px;
+
+      display: table;
+
+      table {
+        @include font(normal, 600);
+        @include respond(font-size, 20px, 20px, 20px, 15px, 15px);
+        width: 100%;
+        border-spacing: 0px 10px;
+        .type {
+          color: $darkblue;
+        }
+        .data {
+          color: $grey;
+          letter-spacing: 0.5px;
+        }
+      }
+
+      #lockImg {
+        display: block;
+        margin: 10px auto;
+      }
+
+      .revealHolder {
+        margin: 10px 0px;
+
+        height: 30px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        button {
+          height: inherit;
+          width: 45%;
+
+          @include font(normal, 400);
+          font-size: 14px;
+
+          color: $white;
+          background: $darkblue;
+
+          border: 1px solid $darkblue;
+          border-radius: 15px;
+
+          &:hover {
+            cursor: pointer;
+            filter: brightness(1.1);
+          }
+
+          transition: 1s color, 1s background;
+        }
+        .reveal {
+          color: $darkblue;
+          background: none;
+        }
+      }
+      .balanceDetails {
+        margin: 5px 0px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        letter-spacing: 0.5px;
+      }
+
+      #balance {
+        margin-top: 40px;
+
+        h3 {
+          font-size: 20px !important;
+        }
+      }
+
+      .inOutHolder {
+        display: flex;
+        flex-direction: row;
+        h3 {
+          font-size: 16px;
+          padding-right: 10px;
+        }
+      }
+
+      .summaryStyle {
+        h3 {
+          color: grey;
+        }
+        .thin {
+          font-weight: 300;
+          margin: 0px auto;
+        }
+      }
+    }
+  }
+  #secondPanel {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    #transactionHolder {
+      #transactionFilters {
+        height: 18px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin-bottom: 15px;
+        h3 {
+          padding-right: 20px;
+          text-align: left;
+          font-size: 18px;
+        }
+        .filterActive {
+          color: $darkblue;
+        }
+        .filterInactive {
+          color: $grey;
+        }
+
+        &:hover {
+          cursor: pointer;
+          filter: brightness(1.1);
+        }
+      }
+      table {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        overflow-y: hidden;
+        @include font(normal, normal);
+
+        th {
+          text-align: left;
+          color: $grey;
+          padding-bottom: 10px;
+        }
+
+        tbody {
+          height: 300px;
+          overflow-y: scroll;
+        }
+        tr {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          padding: 10px 5px;
+
+          td {
+            text-align: left;
+            box-sizing: border-box;
+            width: 100px;
+          }
+
+          .table-date {
+            color: $grey;
+            font-weight: 600;
+            margin-right: auto;
+            width: 175px;
+          }
+
+          .table-account {
+            color: $darkblue;
+            margin-right: auto;
+            width: 200px;
+          }
+
+          .table-amount {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-align: right;
+          }
+
+          .deposit {
+            color: $green;
+          }
+
+          .withdrawal {
+            color: $red;
+          }
+        }
+
+        .posEven {
+          background: $white;
+        }
+        .posOdd {
+          background: $lightgrey;
+        }
+      }
+    }
+  }
+}
+//-------------- Descriptors
+
+.modal {
+  @include modalWindow();
+  @include modalShadow();
+}
+
+.center {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// ------ Form Settings
+
+.inputShadow {
+  @include insetText();
+}
+
+// Modal Window Pieces
+
+.popUpWindow {
+  position: fixed;
+  @include respond(
+    left,
+    0px,
+    #{map-get($navWidth, 'tablet')},
+    #{map-get($navWidth, 'laptop')},
+    #{map-get($navWidth, 'desktop')},
+    #{map-get($navWidth, 'xxx')}
+  );
+
+  top: 0px;
+  @include respond(
+    height,
+    calc(100vh - #{map-get($navHeight, 'mobile')}),
+    100vh,
+    100vh,
+    100vh,
+    100vh
+  );
+
+  @include respond(
+    width,
+    100vw,
+    calc(100vw - #{map-get($navWidth, tablet)}),
+    calc(100vw - #{map-get($navWidth, laptop)}),
+    calc(100vw - #{map-get($navWidth, desktop)}),
+    calc(100vw - #{map-get($navWidth, xxx)})
+  );
+  z-index: 2;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(20px) brightness(1);
+
+  @include font(normal, normal);
+
+  .popUpPanel {
+    height: 750px;
+    width: 720px;
+    box-sizing: border-box;
+    padding: 30px 70px;
+
+    .panelFlex {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .title {
+    padding-bottom: 20px;
+    img {
+      width: 75px;
+      height: 75px;
+      padding-right: 17px;
+    }
+    h3 {
+      font-size: 48px;
+    }
+  }
+
+  .infoRow {
+    justify-content: space-between;
+    padding: 16px 0px;
+
+    p {
+      font-size: 24px;
+      line-height: 24px;
+    }
+
+    .data {
+      color: $grey;
+      font-weight: 600;
+    }
+  }
+
+  input {
+    color: $grey;
+    font-size: 36px;
+    text-align: center;
+  }
+
+  .wideInput {
+    height: 60px;
+    width: 100%;
+    border: none;
+  }
+
+  .amountInput {
+    justify-content: stretch;
+    padding: 0px;
+    padding-bottom: 30px;
+    margin: 0px;
+    height: 60px;
+
+    .poundBackdrop {
+      height: 60px;
+      width: 70px;
+      background: linear-gradient(
+        180deg,
+        #f2f2f2 0%,
+        #ffffff 25%,
+        #fdfdfd 79.17%,
+        #f2f2f2 100%
+      );
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        color: $grey;
+        font-size: 36px;
+        text-align: center;
+      }
+    }
+
+    input {
+      border: none;
+      margin: 0px 20px;
+    }
+
+    .pounds {
+      width: 50%;
+    }
+    .pennies {
+      width: 70px;
+    }
+  }
+
+  .submitButton {
+    width: 200px;
+    height: 60px;
+
+    margin-left: calc(100% - 200px);
+    margin-top: 30px;
+
+    color: $white;
+    background: $darkblue;
+    border-radius: 30px;
+    border: none;
+
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 32px;
+
+    transition: 0.2s filter;
+    &:hover {
+      filter: brightness(1.1);
+      cursor: pointer;
+    }
+  }
+}
+
+.invalid {
+  justify-content: flex-end;
+}
+.invalidText {
+  color: $red;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: right;
+}
+
+// -------- LOAN Screen
+
+#helpButton {
+  position: absolute;
+  z-index: 200;
+  top: 20px;
+  right: 20px;
+
+  width: 50px;
+  height: 50px;
+
+  background-color: $darkblue;
+  border-radius: 25px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  #helpText {
+    @include font(normal, 700);
+    font-size: 25px;
+    color: $white;
+    margin-bottom: 2px;
+  }
+
+  filter: brightness(1);
+
+  &:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+}
+
+#helpWindow {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  z-index: 199;
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: 0.5s;
+  #helpModal {
+    height: 70%;
+    width: 80%;
+    box-sizing: border-box;
+
+    padding: 20px;
+
+    display: flex;
+    justify-content: flex-start;
+    overflow: scroll;
+
+    table {
+      @include font(normal, normal);
+      width: 100%;
+
+      border-spacing: 40px;
+      color: $grey;
+
+      th {
+        font-weight: bold;
+      }
+
+      tr {
+        width: 100%;
+      }
+    }
+  }
+}

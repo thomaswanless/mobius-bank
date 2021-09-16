@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="helpButton"><span id="helpText">?</span></div>
+    <div id="helpWindow" class="noDisplay hidden fade">
+      <div class="modal" id="helpModal">
+        <div id="helpText">
+          <h2>USER DETAILS</h2>
+          <table>
+            <thead>
+              <th>USERNAME</th>
+              <th>PASSWORD</th>
+              <th>CURRENT ACC-NUM</th>
+              <th>BUSINESS ACC-NUM</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>tjones</td>
+                <td>notUnusual</td>
+                <td>123456789</td>
+                <td>123123123</td>
+              </tr>
+              <tr>
+                <td>jbond</td>
+                <td>double07</td>
+                <td>007007007</td>
+                <td>001002003</td>
+              </tr>
+              <tr>
+                <td>rmacdonald</td>
+                <td>mcdonald1</td>
+                <td>987654321</td>
+                <td>987987987</td>
+              </tr>
+            </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div id="app">
+      <div id="login" class="popUpWindow fade noDisplay hidden">
+        <div class="popUpPanel modal">
+          <div class="panelFlex title"">
+            <img src="logo.svg" style="padding-bottom: 20px" />
+            <h1>MOBIUS BANK</h1>
+          </div>
+          <form>
+          <div class="panelFlex infoRow">
+              <p class="heading">USERNAME</p>
+          </div>
+            <input
+              id="usernameField"
+              class="wideInput inputShadow"
+              type="text"
+            />
+            <div class="panelFlex infoRow">
+              <p class="heading">PASSWORD</p>
+            </div>
+            <input id="PassField" class="wideInput inputShadow" type=text>
+            <button id="loginButton" class="submitButton">CONFIRM</button>
+            <div id="invalidLogin" class="panelFlex infoRow invalid hidden">
+              <p id ="incorrectLogin" class="heading">USERNAME OR PIN INCORRECT</p>
+          </div>
+            </form>
+          </div> 
+        </div>
+      </div>
+    </div>
+    <div id="sidebar" class="hidden fade noDisplay">
+      <div id="navBrand" class="">
+        <img src="logo.svg" />
+        <h5>MOBIUS<br />BANK</h5>
+      </div>
+      <div id="navButtonHome"class="navEl">
+        <img src="home.svg" />
+        <h5>HOME</h5>
+      </div>
+      <div id="navButtonSend" class="navEl">
+        <img src="send.svg" />
+        <h5>SEND</h5>
+      </div>
+      <div id="navButtonLoan" class="navEl">
+        <img src="loan.svg" />
+        <h5>LOAN</h5>
+      </div>
+      <div id="logout" class="navEl">
+        <img src="log.svg" />
+        <h5>EXIT</h5>
+      </div>
+    </div>
+    <div id="loanWindow" class="popUpWindow fade hidden noDisplay">
+      <div class="popUpPanel modal">
+        <div class="panelFlex title">
+          <img src="logo.svg" />
+          <h3>LOAN</h3>
+        </div>
+        <div class="panelFlex infoRow">
+          <p class="heading">TOTAL BALANCE:</p>
+          <p id="loanCurrentBalance"class="data"></p>
+        </div>
+        <div class="panelFlex infoRow">
+          <p class="heading">LOAN AVAILABLE:</p>
+          <p id="loanValueAvailable" class="data"></p>
+        </div>
+        <form>
+          <div class="panelFlex infoRow">
+            <p class="heading">AMOUNT:</p>
+          </div>
+          <div class="amountInput panelFlex">
+            <div class="poundBackdrop"><p>£</p></div>
+            <input
+              id="requestLoanPounds"
+              type="text"
+              class="inputShadow pounds"
+              maxlength="6"
+              type="tel"
+            />
+            <p>.</p>
+            <input
+              id="requestLoanPennies"
+              type="text"
+              class="inputShadow pennies"
+              maxlength="2"
+              type='tel'
+            />
+          </div>
+          <div class="panelFlex infoRow">
+            <p class="heading">MONTHLY REPAYMENT:</p>
+            <p id="loanRepayMonth" class="data"></p>
+          </div>
+          <div class="panelFlex infoRow">
+            <p class="heading">TOTAL REPAYMENT:</p>
+            <p id="loanRepayTotal" class="data"></p>
+          </div>
+          <div class="panelFlex infoRow">
+            <p class="heading">CONFIRM PIN:</p>
+          </div>
+          <input id="loanPIN" type="text" class="wideInput inputShadow" />
+          <button id="loanConfirm" class="submitButton">CONFIRM</button>
+          <div id="loanInvalid" class="invalid panelFlex infoRow noDisplay hidden">
+            <p 
+            id="loanInvalidText" class="invalidText heading">PIN INCORRECT</p>
+        </div>
+        </form>
+      </div>
+    </div>
+    <div id="sendWindow" class="popUpWindow fade hidden noDisplay">
+      <div class="popUpPanel modal">
+        <div class="panelFlex title">
+          <img src="logo.svg" />
+          <h3>SEND</h3>
+        </div>
+        <form>
+          <div class="panelFlex infoRow">
+            <p class="heading">ACCOUNT NUMBER:</p>
+          </div>
+          <input id="recipientID" class="wideInput inputShadow" type="text" />
+          <div class="panelFlex infoRow">
+            <p class="heading">AMOUNT:</p>
+          </div>
+          <div class="amountInput panelFlex">
+            <div class="poundBackdrop"><p>£</p></div>
+            <input id="sendPounds" type="text" class="inputShadow pounds" />
+            <p>.</p>
+            <input id="sendPennies" type="text" class="inputShadow pennies" />
+          </div>
+          <div class="panelFlex infoRow">
+            <p class="heading">CONFIRM PIN:</p>
+          </div>
+          <input id="sendPIN" type="text" class="wideInput inputShadow" />
+          <button id="transferConfirm" class="submitButton">CONFIRM</button>
+          <div id="sendInvalid" class="invalid panelFlex infoRow hidden">
+            <p id="sendInvalidText" class="invalidText heading">PIN INCORRECT</p>
+        </div>
+        </form>
+      </div>
+    </div>
+    <div id="dashboard" class="hidden fade noDisplay">
+      <h2>
+        <span id="welcome">WELCOME BACK</span><br /><span id="displayName"
+          ></span>
+      </h2>
+      <p id="countdown">AUTO LOGOUT: <span id="timer"></span></p>
+
+      <div id="cardHolder">
+        <div class="card" id="currentAcc">
+          <div class="typeHolder">
+            <img src="logo.svg" />
+            <h5>CURRENT</h5>
+          </div>
+          <div class="cardNumber">
+            <p id="currentCardNum"></p>
+          </div>
+          <div class="cardRefs">
+            <p id="currentAccName"></p>
+            <p id="currentAccExpiry"></p>
+          </div>
+        </div>
+        <div class="card card-inactive" id="businessAcc">
+          <div class="typeHolder">
+            <img src="logo.svg" />
+            <h5>BUSINESS</h5>
+          </div>
+          <div class="cardNumber">
+            <p id="businessCardNum"></p>
+          </div>
+          <div class="cardRefs">
+            <p id="businessAccName"></p>
+            <p id="businessAccExpiry"></p>
+          </div>
+        </div>
+        <div class="card card-inactive" id="investAcc">
+          <div class="typeHolder">
+            <img src="logo.svg" />
+            <h5>INVEST</h5>
+          </div>
+          <div class="cardNumber">
+            <p>COMING SOON</p>
+          </div>
+        </div>
+      </div>
+      <div class="buttons">
+        
+      </div>
+      <div id="infoStack">
+        <div id="accData">
+          <h3 id="selectedAccount"></h3>
+          <div id="accDetails">
+            <table>
+              <tr>
+                <td class="type">ACCOUNT NAME</td>
+                <td id="summaryAccName" class="data"></td>
+              </tr>
+              <tr>
+                <td class="type">ACCOUNT NUM</td>
+                <td id="summaryAccNum" class="data"></td>
+              </tr>
+              <tr>
+                <td class="type">SORT CODE</td>
+                <td 
+                id="summaryAccSort" class="data"></td>
+              </tr>
+            </table>
+            <img id="lockImg" src="lock.svg" />
+            <div class="revealHolder grey">
+              <button id="showPin">SHOW PIN</button>
+              <button id="showCVV">SHOW CVV</button>
+            </div>
+            <div id="balance" class="balanceDetails summaryStyle">
+              <h3>BALANCE</h3>
+              <h3 id="totalBalance" class="thin">£20,724.09</h3>
+            </div>
+            <div class="inOutHolder summaryStyle">
+              <div id="in" class="balanceDetails">
+                <h3>IN</h3>
+                <h3 id="inValue" class="thin">£20,724.09</h3>
+              </div>
+              <div id="out" class="balanceDetails">
+                <h3>OUT</h3>
+                <h3 id="outValue" class="thin">£20,205.09</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="secondPanel">
+          <div id="transactionHolder">
+            <div id="transactionFilters">
+              <h3 id="filterAll" class="filterActive">ALL</h3>
+              <h3 id="filterDeposits" class="filterInactive">DEPOSITS</h3>
+              <h3 
+              id="filterWithdrawals" class="filterInactive">WITHDRAWALS</h3>
+            </div>
+            <table>
+              <thead>
+                <th class="" id="sortDate">DATE</th>
+                <th class="center" id="sortAcc">ACCOUNT</th>
+                <th class="right" id="sortAmount">AMOUNT</th>
+              </thead>
+              <tbody id="transactionList">
+                
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="script.js"></script>
+  </body>
+</html>
